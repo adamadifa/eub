@@ -7,12 +7,12 @@
             <p class="text-gray-500 mt-1">Daftar seluruh mahasiswa yang terdaftar di sistem.</p>
         </div>
         <div class="flex items-center gap-3">
-            <button onclick="document.getElementById('importModal').classList.remove('hidden')" class="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-50 text-indigo-600 rounded-xl font-semibold hover:bg-indigo-100 transition border border-indigo-100">
+            <button onclick="document.getElementById('importModal').classList.remove('hidden')" class="inline-flex items-center gap-2 px-5 py-2.5 bg-green-50 text-[#008444] rounded-xl font-semibold hover:bg-green-100 transition border border-green-100">
                 <i data-lucide="upload" class="w-5 h-5"></i>
                 Import Excel
             </button>
-            <a href="{{ route('admin.students.create') }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-orange text-white rounded-xl font-semibold shadow-lg shadow-orange-100 hover:bg-orange-600 transition">
-                <i data-lucide="plus" class="w-5 h-5"></i>
+            <a href="{{ route('admin.students.create') }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#008444] text-white rounded-xl font-semibold shadow-lg shadow-green-100 hover:bg-[#006b35] transition">
+                <i data-lucide="user-plus" class="w-5 h-5"></i>
                 Tambah Mahasiswa
             </a>
         </div>
@@ -34,11 +34,11 @@
                 <form action="{{ route('admin.students.import') }}" method="POST" enctype="multipart/form-data" class="p-8 space-y-6">
                     @csrf
                     <div class="space-y-4">
-                        <div class="p-6 bg-orange-50 rounded-2xl border border-orange-100 flex gap-4 items-start">
-                            <div class="p-2 bg-white rounded-lg text-orange-500 shadow-sm shrink-0">
+                        <div class="p-6 bg-green-50 rounded-2xl border border-green-100 flex gap-4 items-start">
+                            <div class="p-2 bg-white rounded-lg text-[#008444] shadow-sm shrink-0">
                                 <i data-lucide="info" class="w-5 h-5"></i>
                             </div>
-                            <div class="text-xs text-orange-800 leading-relaxed font-medium">
+                            <div class="text-xs text-green-800 leading-relaxed font-medium">
                                 <p class="font-bold mb-1">Panduan Kolom Excel:</p>
                                 <ul class="list-disc list-inside space-y-1">
                                     <li><b>nama</b>: Nama lengkap mahasiswa</li>
@@ -51,8 +51,8 @@
 
                         <div class="relative group">
                             <input type="file" name="file" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
-                            <div class="border-2 border-dashed border-gray-200 group-hover:border-orange-200 rounded-3xl p-10 text-center transition-all bg-gray-50/50 group-hover:bg-orange-50/30">
-                                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-gray-400 group-hover:text-orange-500 shadow-sm transition-colors">
+                            <div class="border-2 border-dashed border-gray-200 group-hover:border-green-200 rounded-3xl p-10 text-center transition-all bg-gray-50/50 group-hover:bg-green-50/30">
+                                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-gray-400 group-hover:text-[#008444] shadow-sm transition-colors">
                                     <i data-lucide="file-up" class="w-8 h-8"></i>
                                 </div>
                                 <p class="text-sm font-bold text-gray-600">Klik atau seret file Excel ke sini</p>
@@ -61,8 +61,9 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full py-4 bg-brand-orange text-white rounded-2xl font-bold shadow-lg shadow-orange-100 hover:bg-orange-600 transition flex items-center justify-center gap-2 group">
-                        Mulai Import <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    <button type="submit" class="w-full py-4 bg-[#008444] text-white rounded-2xl font-bold shadow-lg shadow-green-100 hover:bg-[#006b35] transition flex items-center justify-center gap-2 group">
+                        <i data-lucide="upload" class="w-6 h-6 group-hover:-translate-y-1 transition-transform"></i>
+                        Import Data Mahasiswa
                     </button>
                 </form>
             </div>
@@ -98,12 +99,12 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-lg text-xs font-bold border border-indigo-100">{{ $student->nim }}</span>
+                                <span class="px-3 py-1 bg-green-50 text-[#008444] rounded-lg text-xs font-bold border border-green-100">{{ $student->nim }}</span>
                             </td>
                             <td class="px-6 py-4 text-gray-500 text-sm font-medium">{{ $student->email }}</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center justify-end gap-2">
-                                    <a href="{{ route('admin.students.edit', $student) }}" class="p-2 text-gray-400 hover:text-brand-orange hover:bg-orange-50 rounded-lg transition">
+                                    <a href="{{ route('admin.students.edit', $student) }}" class="p-2 text-gray-400 hover:text-[#008444] hover:bg-green-50 rounded-lg transition">
                                         <i data-lucide="edit-3" class="w-5 h-5"></i>
                                     </a>
                                     <form action="{{ route('admin.students.destroy', $student) }}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus mahasiswa ini?')">

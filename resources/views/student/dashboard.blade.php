@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body { font-family: 'Outfit', sans-serif; }
-        .gradient-brand { background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); }
+        .gradient-brand { background: linear-gradient(135deg, #008444 0%, #006b35 100%); }
         .card-shadow { box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05); }
     </style>
 </head>
@@ -20,11 +20,11 @@
             <div class="flex justify-between h-16 md:h-20">
                 <div class="flex items-center gap-3">
                     <div class="gradient-brand p-1.5 md:p-2 rounded-xl">
-                        <i data-lucide="graduation-cap" class="w-5 h-5 md:w-6 md:h-6 text-white"></i>
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="Logo UNSIL" class="w-5 h-5 md:w-6 md:h-6">
                     </div>
                     <div>
                         <span class="text-lg md:text-xl font-bold text-gray-800 tracking-tight">{{ config('app.name') }}</span>
-                        <p class="text-[8px] md:text-[10px] font-bold text-orange-500 uppercase tracking-widest leading-none">Portal Mahasiswa</p>
+                        <p class="text-[8px] md:text-[10px] font-bold text-[#008444] uppercase tracking-widest leading-none">Universitas Siliwangi</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2 md:gap-4">
@@ -86,27 +86,27 @@
         @endif
 
         <!-- Semester Card -->
-        <div class="bg-indigo-600 rounded-[2rem] p-6 md:p-12 mb-8 md:mb-12 text-white relative overflow-hidden shadow-2xl shadow-indigo-100">
+        <div class="bg-[#008444] rounded-[2rem] p-6 md:p-12 mb-8 md:mb-12 text-white relative overflow-hidden shadow-2xl shadow-green-100">
             <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6 md:gap-8">
                 <div class="text-center lg:text-left">
                     <span class="inline-flex px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em]">Semester Aktif</span>
                     <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold mt-3 tracking-tight">{{ $activeSemester->name ?? 'Tidak Ada Semester Aktif' }}</h2>
-                    <p class="text-indigo-100 mt-2 text-xs md:text-sm lg:text-base opacity-80">Pastikan semua data terisi sebelum periode berakhir.</p>
+                    <p class="text-green-100 mt-2 text-xs md:text-sm lg:text-base opacity-80">Evaluasi Umpan Balik Universitas Siliwangi.</p>
                 </div>
                 <div class="flex items-center justify-center lg:justify-end gap-3 md:gap-4">
                     <div class="flex-1 lg:flex-none text-center bg-white/10 backdrop-blur-md p-4 md:p-5 rounded-2xl border border-white/10 min-w-[100px] md:min-w-[120px]">
-                        <p class="text-2xl md:text-3xl font-black">{{ $enrollments->where('is_completed', true)->count() }}</p>
-                        <p class="text-[9px] md:text-[10px] font-bold text-indigo-100 uppercase tracking-wider mt-1">Selesai</p>
+                        <p class="text-2xl md:text-3xl font-black text-[#FFD700]">{{ $enrollments->where('is_completed', true)->count() }}</p>
+                        <p class="text-[9px] md:text-[10px] font-bold text-green-100 uppercase tracking-wider mt-1">Selesai</p>
                     </div>
                     <div class="flex-1 lg:flex-none text-center bg-white/10 backdrop-blur-md p-4 md:p-5 rounded-2xl border border-white/10 min-w-[100px] md:min-w-[120px]">
-                        <p class="text-2xl md:text-3xl font-black">{{ $enrollments->where('is_completed', false)->count() }}</p>
-                        <p class="text-[9px] md:text-[10px] font-bold text-indigo-100 uppercase tracking-wider mt-1">Belum Isi</p>
+                        <p class="text-2xl md:text-3xl font-black text-[#FFD700]">{{ $enrollments->where('is_completed', false)->count() }}</p>
+                        <p class="text-[9px] md:text-[10px] font-bold text-green-100 uppercase tracking-wider mt-1">Belum Isi</p>
                     </div>
                 </div>
             </div>
             <!-- Decorative elements -->
             <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -left-10 -top-10 w-40 h-40 bg-orange-500/20 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="absolute -left-10 -top-10 w-40 h-40 bg-[#FFD700]/20 rounded-full blur-2xl pointer-events-none"></div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
@@ -140,7 +140,7 @@
                                 <i data-lucide="check-circle" class="w-4 h-4"></i> Sudah Diisi
                             </div>
                         @else
-                            <a href="{{ route('student.questionnaire', $enrollment->courseClass) }}" class="w-full py-4 px-6 gradient-brand text-white rounded-[1.25rem] font-bold text-sm md:text-base flex items-center justify-center gap-2 shadow-lg shadow-orange-100 hover:shadow-orange-200 transition-all group active:scale-95 active:shadow-none duration-300">
+                            <a href="{{ route('student.questionnaire', $enrollment->courseClass) }}" class="w-full py-4 px-6 gradient-brand text-white rounded-[1.25rem] font-bold text-sm md:text-base flex items-center justify-center gap-2 shadow-lg shadow-green-100 hover:shadow-green-200 transition-all group active:scale-95 active:shadow-none duration-300">
                                 Mulai Isi <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                             </a>
                         @endif

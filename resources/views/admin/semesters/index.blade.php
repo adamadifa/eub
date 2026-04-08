@@ -3,14 +3,14 @@
         <div>
             <h1 class="text-2xl md:text-3xl font-bold text-gray-800">Manajemen Semester</h1>
             <nav class="flex text-gray-500 text-sm mt-1">
-                <a href="{{ route('dashboard') }}" class="hover:text-orange-500 transition">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="hover:text-[#008444] transition">Dashboard</a>
                 <span class="mx-2">/</span>
                 <span class="text-gray-400">Semester</span>
             </nav>
         </div>
         <div>
-            <a href="{{ route('admin.semesters.create') }}" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 px-5 rounded-xl transition shadow-lg shadow-orange-200">
-                <i data-lucide="plus-circle" class="w-5 h-5"></i>
+            <a href="{{ route('admin.semesters.create') }}" class="inline-flex items-center gap-2 bg-[#008444] hover:bg-[#006b35] text-white font-bold py-2.5 px-5 rounded-xl transition shadow-lg shadow-green-200">
+                <i data-lucide="calendar-plus" class="w-5 h-5"></i>
                 Tambah Semester
             </a>
         </div>
@@ -28,7 +28,10 @@
             <h3 class="font-bold text-gray-800 text-lg">Daftar Semester</h3>
             <div class="relative">
                 <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
-                <input type="text" placeholder="Cari semester..." class="pl-10 pr-4 py-2 bg-gray-50 border-none rounded-xl text-sm w-64 focus:ring-2 focus:ring-orange-500 transition-all">
+                <div class="relative">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
+                    <input type="text" placeholder="Cari semester..." class="pl-10 pr-4 py-2 bg-gray-50 border-none rounded-xl text-sm w-64 focus:ring-2 focus:ring-[#008444] transition-all">
+                </div>
             </div>
         </div>
         <div class="overflow-x-auto">

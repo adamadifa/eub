@@ -9,12 +9,12 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body { font-family: 'Outfit', sans-serif; }
-        .gradient-brand { background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); }
+        .gradient-brand { background: linear-gradient(135deg, #008444 0%, #006b35 100%); }
         .card-shadow { box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05); }
         .likert-radio:checked + div {
-            background-color: #F97316;
+            background-color: #008444;
             color: white;
-            border-color: #F97316;
+            border-color: #008444;
         }
     </style>
 </head>
@@ -48,7 +48,7 @@
                 <div class="mb-10 md:mb-14">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="h-px bg-gray-200 flex-1"></div>
-                        <h3 class="px-5 py-1.5 bg-indigo-50 text-indigo-700 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] whitespace-nowrap">{{ $group }}</h3>
+                        <h3 class="px-5 py-1.5 bg-green-50 text-[#008444] rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] whitespace-nowrap">{{ $group }}</h3>
                         <div class="h-px bg-gray-200 flex-1"></div>
                     </div>
 
@@ -56,7 +56,7 @@
                         @foreach($questions as $question)
                             <div class="bg-white p-6 md:p-10 rounded-[2rem] border border-gray-100 card-shadow transition-all duration-300 hover:shadow-lg hover:shadow-gray-100">
                                 <p class="text-base md:text-xl font-bold text-gray-800 leading-snug mb-8">
-                                    <span class="text-orange-500 mr-2 opacity-50">{{ $loop->parent->index * 10 + $loop->iteration }}.</span>
+                                    <span class="text-[#008444] mr-2 opacity-50">{{ $loop->parent->index * 10 + $loop->iteration }}.</span>
                                     {{ $question->content }}
                                 </p>
 
@@ -81,7 +81,7 @@
                                     <div class="md:hidden mt-8"></div> {{-- Spacer for absolute labels --}}
                                 @else
                                     <textarea name="answers[{{ $question->id }}]" rows="5" 
-                                        class="w-full p-5 md:p-6 bg-gray-50 border-2 border-transparent rounded-2xl md:rounded-3xl focus:ring-4 focus:ring-orange-500/10 focus:border-orange-500 transition-all font-medium text-gray-700 placeholder:text-gray-300 leading-relaxed text-sm md:text-base outline-none"
+                                        class="w-full p-5 md:p-6 bg-gray-50 border-2 border-transparent rounded-2xl md:rounded-3xl focus:ring-4 focus:ring-green-500/10 focus:border-[#008444] transition-all font-medium text-gray-700 placeholder:text-gray-300 leading-relaxed text-sm md:text-base outline-none"
                                         placeholder="Tuliskan saran atau komentar Anda di sini..." required></textarea>
                                 @endif
                             </div>
@@ -90,23 +90,23 @@
                 </div>
             @endforeach
 
-            <div class="mt-16 md:mt-24 p-8 md:p-14 bg-gray-900 rounded-[2.5rem] md:rounded-[3.5rem] text-center text-white relative overflow-hidden shadow-2xl shadow-gray-200">
+            <div class="mt-16 md:mt-24 p-8 md:p-14 bg-[#004d26] rounded-[2.5rem] md:rounded-[3.5rem] text-center text-white relative overflow-hidden shadow-2xl shadow-gray-200">
                 <div class="relative z-10 flex flex-col items-center">
-                    <div class="w-16 h-16 md:w-20 md:h-20 bg-orange-500/20 rounded-full flex items-center justify-center mb-6">
-                        <i data-lucide="check-check" class="w-8 h-8 md:w-10 md:h-10 text-orange-500"></i>
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-[#FFD700]/20 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="check-check" class="w-8 h-8 md:w-10 md:h-10 text-[#FFD700]"></i>
                     </div>
                     <h3 class="text-xl md:text-3xl font-black tracking-tight">Kirim Jawaban Anda?</h3>
-                    <p class="text-gray-400 text-sm md:text-base mt-2 max-w-sm mx-auto leading-relaxed">Pastikan semua data sudah terisi dengan benar. Jawaban yang sudah dikirim tidak dapat diubah.</p>
+                    <p class="text-green-100/60 text-sm md:text-base mt-2 max-w-sm mx-auto leading-relaxed">Pastikan semua data sudah terisi dengan benar. Jawaban yang sudah dikirim tidak dapat diubah.</p>
                     
-                    <button type="submit" class="mt-10 w-full md:w-auto px-12 py-4 md:py-5 bg-orange-600 text-white rounded-2xl md:rounded-3xl font-bold text-base md:text-lg hover:bg-orange-500 transition shadow-xl shadow-orange-900/20 flex items-center justify-center gap-3 group active:scale-95 duration-300">
+                    <button type="submit" class="mt-10 w-full md:w-auto px-12 py-4 md:py-5 bg-[#008444] text-white rounded-2xl md:rounded-3xl font-bold text-base md:text-lg hover:bg-[#006b35] transition shadow-xl shadow-green-900/20 flex items-center justify-center gap-3 group active:scale-95 duration-300">
                         <i data-lucide="send" class="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i> Kirim Evaluasi
                     </button>
                     
-                    <a href="{{ route('dashboard') }}" class="mt-6 md:mt-8 text-gray-500 hover:text-white text-sm font-bold tracking-widest uppercase transition duration-300">Nanti Saja</a>
+                    <a href="{{ route('dashboard') }}" class="mt-6 md:mt-8 text-green-200/40 hover:text-white text-sm font-bold tracking-widest uppercase transition duration-300">Nanti Saja</a>
                 </div>
                 <!-- Decorative effects -->
-                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -left-10 -top-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-10 -top-10 w-40 h-40 bg-[#FFD700]/10 rounded-full blur-2xl pointer-events-none"></div>
             </div>
         </form>
     </main>
@@ -122,14 +122,14 @@
                 const allSiblings = radio.closest('.grid').querySelectorAll('.group div');
                 
                 allSiblings.forEach(sib => {
-                    sib.classList.remove('bg-orange-500', 'border-orange-500', 'text-white', 'shadow-lg', 'shadow-orange-200');
+                    sib.classList.remove('bg-[#008444]', 'border-[#008444]', 'text-white', 'shadow-lg', 'shadow-green-200');
                     sib.classList.add('bg-gray-50/50', 'border-gray-50', 'text-gray-400');
                 });
 
                 if (radio.checked) {
                     const target = parent.querySelector('div');
                     target.classList.remove('bg-gray-50/50', 'border-gray-50', 'text-gray-400');
-                    target.classList.add('bg-orange-500', 'border-orange-500', 'text-white', 'shadow-lg', 'shadow-orange-200');
+                    target.classList.add('bg-[#008444]', 'border-[#008444]', 'text-white', 'shadow-lg', 'shadow-green-200');
                 }
             });
         });

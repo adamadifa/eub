@@ -6,7 +6,7 @@
             <h1 class="text-3xl font-bold text-gray-800">Manajemen Kelas</h1>
             <p class="text-gray-500 mt-1">Kelola pembagian kelas, dosen pengampu, dan semester.</p>
         </div>
-        <a href="{{ route('admin.classes.create') }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-orange text-white rounded-xl font-semibold shadow-lg shadow-orange-100 hover:bg-orange-600 transition">
+        <a href="{{ route('admin.classes.create') }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#008444] text-white rounded-xl font-semibold shadow-lg shadow-green-100 hover:bg-[#006b35] transition">
             <i data-lucide="plus" class="w-5 h-5"></i>
             Tambah Kelas
         </a>
@@ -39,13 +39,13 @@
                                     <div class="flex items-center gap-2 mt-1">
                                         <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{{ $class->course->code }}</span>
                                         <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
-                                        <span class="text-xs font-bold text-orange-500">{{ $class->name }}</span>
+                                        <span class="text-xs font-bold text-[#008444]">{{ $class->name }}</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500">
+                                    <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center text-[#008444]">
                                         <i data-lucide="user" class="w-4 h-4"></i>
                                     </div>
                                     <div class="flex flex-col">
@@ -61,7 +61,7 @@
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <div class="flex items-center justify-end gap-2">
-                                    <a href="{{ route('admin.classes.edit', $class) }}" class="p-2 text-gray-400 hover:text-brand-orange hover:bg-orange-50 rounded-lg transition">
+                                    <a href="{{ route('admin.classes.edit', $class) }}" class="p-2 text-gray-400 hover:text-[#008444] hover:bg-green-50 rounded-lg transition">
                                         <i data-lucide="edit-3" class="w-5 h-5"></i>
                                     </a>
                                     <form action="{{ route('admin.classes.destroy', $class) }}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus kelas ini?')">

@@ -3,13 +3,13 @@
         <div>
             <h1 class="text-2xl md:text-3xl font-bold text-gray-800">Manajemen Dosen</h1>
             <nav class="flex text-gray-500 text-sm mt-1">
-                <a href="{{ route('dashboard') }}" class="hover:text-orange-500 transition">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="hover:text-[#008444] transition">Dashboard</a>
                 <span class="mx-2">/</span>
                 <span class="text-gray-400">Dosen</span>
             </nav>
         </div>
         <div>
-            <a href="{{ route('admin.lecturers.create') }}" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 px-5 rounded-xl transition shadow-lg shadow-orange-200">
+            <a href="{{ route('admin.lecturers.create') }}" class="inline-flex items-center gap-2 bg-[#008444] hover:bg-[#006b35] text-white font-bold py-2.5 px-5 rounded-xl transition shadow-lg shadow-green-100">
                 <i data-lucide="user-plus" class="w-5 h-5"></i>
                 Tambah Dosen
             </a>
@@ -29,7 +29,7 @@
             <div class="flex items-center gap-3">
                 <div class="relative">
                     <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
-                    <input type="text" placeholder="Cari NIDN atau nama..." class="pl-10 pr-4 py-2 bg-gray-50 border-none rounded-xl text-sm w-64 focus:ring-2 focus:ring-orange-500 transition-all">
+                    <input type="text" placeholder="Cari NIDN atau nama..." class="pl-10 pr-4 py-2 bg-gray-50 border-none rounded-xl text-sm w-64 focus:ring-2 focus:ring-[#008444] transition-all">
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                         <tr class="hover:bg-gray-50/50 transition">
                             <td class="px-8 py-5 whitespace-nowrap">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold text-sm">
+                                    <div class="w-10 h-10 bg-green-50 text-[#008444] rounded-full flex items-center justify-center font-bold text-sm">
                                         {{ substr($lecturer->user->name, 0, 1) }}
                                     </div>
                                     <div>
@@ -65,7 +65,7 @@
                             </td>
                             <td class="px-8 py-5 whitespace-nowrap text-right">
                                 <div class="flex justify-end items-center gap-2">
-                                    <a href="{{ route('admin.lecturers.edit', $lecturer) }}" class="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition" title="Edit">
+                                    <a href="{{ route('admin.lecturers.edit', $lecturer) }}" class="p-2 text-gray-400 hover:text-[#008444] hover:bg-green-50 rounded-lg transition" title="Edit">
                                         <i data-lucide="edit-3" class="w-5 h-5"></i>
                                     </a>
                                     <form action="{{ route('admin.lecturers.destroy', $lecturer) }}" method="POST" class="inline-block" onsubmit="return confirm('Apakah Anda yakin ingin menghapus dosen ini?')">

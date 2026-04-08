@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\QuestionnaireController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,7 +10,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     if (auth()->user()->hasRole('Admin')) {
-        return view('admin.dashboard_redesign');
+        return app(\App\Http\Controllers\Admin\DashboardController::class)->index();
     }
     if (auth()->user()->hasRole('Mahasiswa')) {
         return app(\App\Http\Controllers\StudentController::class)->dashboard();
@@ -32,9 +33,9 @@ Route::middleware('auth')->group(function () {
         Route::resource('lecturers', \App\Http\Controllers\Admin\LecturerController::class);
         Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class);
         Route::resource('semesters', \App\Http\Controllers\Admin\SemesterController::class);
-        Route::resource('questionnaires', \App\Http\Controllers\Admin\QuestionnaireController::class);
-        Route::post('questionnaires/{questionnaire}/questions', [\App\Http\Controllers\Admin\QuestionnaireController::class, 'storeQuestion'])->name('questionnaires.questions.store');
-        Route::delete('questions/{question}', [\App\Http\Controllers\Admin\QuestionnaireController::class, 'destroyQuestion'])->name('questionnaires.questions.destroy');
+        Route::resource('questionnaires', QuestionnaireController::class);
+        Route::post('questionnaires/{questionnaire}/questions', [QuestionnaireController::class, 'storeQuestion'])->name('questionnaires.questions.store');
+        Route::delete('questions/{question}', [QuestionnaireController::class, 'destroyQuestion'])->name('questionnaires.questions.destroy');
 
         // Academic Management
         Route::resource('students', \App\Http\Controllers\Admin\StudentManagementController::class);
